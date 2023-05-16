@@ -18,4 +18,5 @@ public class ApplierListRowMapper implements RowMapper<ApplierListDO> {
         applierListDO.setEmail(rs.getString("EMAIL"));
         return applierListDO;
     }
+
 }

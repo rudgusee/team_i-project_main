@@ -14,4 +14,5 @@ public class EditToolsRowMapper implements RowMapper<PortfolioToolsDO> {
         portfolioToolsDO.setEdittools(rs.getString("EDIT_TOOL"));
         return portfolioToolsDO;
     }
+
 }

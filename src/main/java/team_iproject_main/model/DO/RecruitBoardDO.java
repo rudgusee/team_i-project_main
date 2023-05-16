@@ -8,6 +8,7 @@ import java.time.LocalDateTime;
 
 @Data
 public class RecruitBoardDO {
+
     private long recruit_no;
     private String youtuber_email;
     private String recruit_title;

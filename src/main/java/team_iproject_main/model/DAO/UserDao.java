@@ -41,7 +41,7 @@ public class UserDao {
         jdbcTemplate.update(sqluqid, user.getEmail(), "FALSE");
     }
 
-    // 겸손 추가
+
     public void createYoutuber(UserDO user) {
 
         String password = encoder.encode(user.getPassword());
@@ -95,9 +95,8 @@ public class UserDao {
     }
 
 
-    //희수
     //관리자 회원 검색
-    // 준영 페이징 추가
+    //페이징 추가
     public List<UserDO> userFindById(UserSearchRequest userSearchRequest, int postsPerPage, int offset) {
         String sql = "SELECT * FROM (SELECT ROWNUM AS rn, u.* FROM USER_INFO u) " +
                 "WHERE " + userSearchRequest.getJob() + " like '%" + userSearchRequest.getSearchtext() + "%' " +
@@ -107,14 +106,14 @@ public class UserDao {
         return result;
     }
 
-    // 준영 페이징 추가
+    //페이징 추가
     public int getTotalSearch(UserSearchRequest userSearchRequest) {
         return jdbcTemplate.queryForObject("select COUNT(*) from USER_INFO where " + userSearchRequest.getJob() + " like '%" + userSearchRequest.getSearchtext() + "%'", Integer.class);
     }
 
-    //희수
+
     //유저 전체 조회
-    //준영 페이징 추가
+    //페이징 추가
     public List<UserDO> findAll(int postsPerPage, int offset) {
         String sql = "SELECT * FROM (SELECT ROWNUM AS rn, u.* FROM USER_INFO u) WHERE rn BETWEEN ? AND ?";
         return jdbcTemplate.query(sql, new Object[]{offset + 1, offset + postsPerPage}, new UserRowMapper());
@@ -124,7 +123,7 @@ public class UserDao {
         return jdbcTemplate.queryForObject("SELECT COUNT(*) FROM USER_INFO", Integer.class);
     }
 
-    //0506-손주현
+
     //name이랑 핸드폰 번호로 유저 찾기
     public UserDO findByNameAndPhone(String name, String phone_number){
         String sql = "SELECT * FROM USER_INFO WHERE NAME = ? AND PHONE_NUMBER = ?";
@@ -176,7 +175,7 @@ public class UserDao {
 
     }
 
-    //0511- 손주현
+
     public void deleteUserInfo(String email){
         String sql = "DELETE FROM USER_INFO WHERE EMAIL = ?";
         jdbcTemplate.update(sql, email);

@@ -73,7 +73,8 @@ public class UserDO {
         return encoder.matches(password, this.password);
     }
 
-    //0506- 손주현
+
+
     //매개변수의 name이랑 phonenum 비교해서 boolean으로 넘겨줌
     public boolean checkNameAndPhonenum(String name, String phone_number) {
         log.info("DO" + (this.name.equals(name) && this.phone_number.equals(phone_number)));

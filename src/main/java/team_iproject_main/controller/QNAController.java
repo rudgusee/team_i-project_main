@@ -24,7 +24,7 @@ public class QNAController {
         return "Qna_question";
     }
 
-    //희수
+
     @GetMapping("/QnAboard")
     public String QnA_board(Model model, @RequestParam(value = "page", defaultValue = "1") int page) {
         int postsPerPage = 10;
@@ -45,7 +45,7 @@ public class QNAController {
         return "QnAboard";
     }
 
-    //희수
+
     @PostMapping("/QnAboard")
     public String QA_boardForm(HttpSession session, String question, RedirectAttributes redirectAttributes) {
         if(session.getAttribute("email") == null) {

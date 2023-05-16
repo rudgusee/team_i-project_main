@@ -25,4 +25,5 @@ public class PortfolioEditRowMapper implements RowMapper<PortfolioEditDO> {
         portfolioEditDO.setIs_public(rs.getString("IS_PUBLIC"));
         return portfolioEditDO;
     }
+
 }

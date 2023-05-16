@@ -119,8 +119,7 @@ public class ApplyController {
         return "applynow";
     }
 
-    //주현 0512
-    //주현 0512 수업시간 중에 수정
+
     @GetMapping("/applynow_upload")
     public String applynow_uploadForm(int recruitNo, Model model, HttpSession session, RedirectAttributes redirectAttributes){
         if(session.getAttribute("email") == null) {
@@ -173,8 +172,7 @@ public class ApplyController {
         return "redirect:/applynow";
     }
 
-    // 0512 준원
-    // 유튜버 -> 작성한 구인글 -> 지원자 확인
+
     @GetMapping("/applier_check")
     public String bringMyRecruitApplier(@RequestParam(value = "page", defaultValue = "1") int page, int recruitNo, Model model, HttpSession session, RedirectAttributes redirectAttributes) {
         if(session.getAttribute("email") == null) {
@@ -210,8 +208,7 @@ public class ApplyController {
         return "applier_check";
     }
 
-    // 0513 준원
-    // 테스트 영상확인
+
     @GetMapping("/check_video_result")
     public String myApplierTestVideo(String editor_email, int recruit_no, Model model, HttpSession session, RedirectAttributes redirectAttributes) {
         if(session.getAttribute("email") == null) {
@@ -236,7 +233,7 @@ public class ApplyController {
         return "check_video_result";
     }
 
-    // 0514
+
     // 유튜버 메모
     @PostMapping("/check_video_result")
     public String youtuberMemo(@RequestParam(value = "youtuber_memo") String youtuber_memo, @RequestParam(value = "editor_email") String editor_email,

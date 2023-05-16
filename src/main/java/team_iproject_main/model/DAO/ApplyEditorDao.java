@@ -19,14 +19,12 @@ public class ApplyEditorDao {
     @Autowired
     private JdbcTemplate jdbcTemplate;
 
-    //주현 0511
     //구인글에 지원한 지원자 넣기
     public void addApplyEditor(int recruitNO, String email){
         String sql = "INSERT INTO APPLY_EDITOR(APPLY_NO, RECRUIT_NO, EDITOR_EMAIL) VALUES(APPLY_EDITOR_SEQ.NEXTVAL,?,?)";
         jdbcTemplate.update(sql,recruitNO,email);
     }
 
-    //주현 0511
     //구인글에 지원한 지원자를 넣을 때 중복을 방지하기 위해서 만든 것
     public ApplyEditorDO findApplyEditorByNumAndEmail(int recruitNO, String email){
         String sql = "SELECT * FROM APPLY_EDITOR WHERE RECRUIT_NO = ? AND EDITOR_EMAIL = ?";
@@ -40,20 +38,21 @@ public class ApplyEditorDao {
         }
 
     }
-    //주현 0511
+
+
     //지원한 구인글에 링크와 하고싶은말 업데이트하기
     public void updateApplyEditor(int recruitNo, String editor_email, String edited_link, String editor_memo){
         String sql = "UPDATE APPLY_EDITOR SET EDITED_LINK = ?, EDITOR_MEMO = ? WHERE RECRUIT_NO = ? AND EDITOR_EMAIL = ?";
         jdbcTemplate.update(sql, edited_link, editor_memo, recruitNo, editor_email);
     }
 
-    //주현 0512
+
     public void deleteApplyEditor(int recruitNo, String email){
         String sql = "DELETE FROM APPLY_EDITOR WHERE RECRUIT_NO = ? AND EDITOR_EMAIL = ?";
         jdbcTemplate.update(sql, recruitNo, email);
     }
 
-    //준원 0511
+
     // 유튜버 작성한 구인글 지원자 확인
     public List<ApplierListDO> myRecruitApplierList(int recruitNo, int postsPerPage, int offset) {
 
@@ -75,14 +74,14 @@ public class ApplyEditorDao {
         return jdbcTemplate.queryForObject(sql, new EditorRowMapper(), email);
     }
 
-    // 준원 0513
+
     // 테스트 영상확인
     public ApplyEditorDO checkApplierVideo(String editor_email, int recruit_no) {
         String sql = "SELECT * FROM APPLY_EDITOR WHERE EDITOR_EMAIL = ? AND RECRUIT_NO = ?";
         return jdbcTemplate.queryForObject(sql, new ApplyEditorRowMapper(), editor_email, recruit_no);
     }
 
-    // 준원 0514
+
     // 유튜버 메모
     public void updateYoutuberMemo(String youtuber_memo, int apply_no){
         String sql = "UPDATE APPLY_EDITOR SET YOUTUBER_MEMO = ? WHERE APPLY_NO = ?";

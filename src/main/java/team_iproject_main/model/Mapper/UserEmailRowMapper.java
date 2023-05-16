@@ -14,4 +14,5 @@ public class UserEmailRowMapper implements RowMapper<UserDO> {
 
         return user;
     }
+
 }

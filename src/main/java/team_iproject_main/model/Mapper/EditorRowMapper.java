@@ -16,4 +16,5 @@ public class EditorRowMapper implements RowMapper<UserEditorDO> {
 
         return userEditorDO;
     }
+
 }

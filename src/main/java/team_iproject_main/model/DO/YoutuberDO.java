@@ -4,6 +4,7 @@ import lombok.Data;
 
 @Data
 public class YoutuberDO {
+
     String channel_id;
     String channel_photo;
     String channel_name;

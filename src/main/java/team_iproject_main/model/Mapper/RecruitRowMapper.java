@@ -29,4 +29,5 @@ public class RecruitRowMapper implements RowMapper<RecruitDO> {
 
         return recruitDO;
     }
+
 }

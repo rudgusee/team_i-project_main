@@ -17,9 +17,9 @@ public class PortfolioDao {
     @Autowired
     private JdbcTemplate jdbcTemplate;
 
-    //희수
+
     //포트폴리오 조회
-    //준영 페이징 추가
+    //페이징 추가
     public List<PortfolioDO> PortfolioAll(int postsPerPage, int offset) {
         return jdbcTemplate.query("SELECT * FROM (SELECT ROWNUM As rn, rb.* FROM" +
                 "(SELECT p.*, u.nickname FROM PORTFOLIO p join USER_INFO u ON p.EDITOR_EMAIL = u.EMAIL WHERE p.IS_PUBLIC = 'TRUE' ORDER BY p.POST_DATE DESC) rb) WHERE rn BETWEEN ? AND ?"
@@ -30,14 +30,13 @@ public class PortfolioDao {
         return jdbcTemplate.queryForObject("SELECT COUNT(*) FROM PORTFOLIO WHERE IS_PUBLIC = 'TRUE'", Integer.class);
     }
     
-    
-    //희수
+
     //포트폴리오 상세 조회
     public PortfolioDO selectPortfolioPost(String email) {
         return jdbcTemplate.queryForObject("select p.*, u.nickname from portfolio p join user_info u on p.editor_email = u.email where p.EDITOR_EMAIL = ?", new PortfolioRowMapper(), email);
     }
 
-    //5.12양서림 edit_career삭제이슈
+    //edit_career삭제이슈
     public void portfolioupdate(PortfolioEditDO portfolioEditDO) {
         String sqlportfolio = "update PORTFOLIO set WORKABLE_LOCATION=?,MESSAGE=?,YOUTUBE_CAREER=?,OTHER_CAREER=?,PORTFOLIO_TITLE=?,DESIRED_SALARY=?," +
                 "DESIRED_WORK_TYPE=?,MESSAGE_TO_YOUTUBER=?, IS_PUBLIC=? where EDITOR_EMAIL=?";
@@ -76,7 +75,7 @@ public class PortfolioDao {
 
     }
 
-    //5.12 서림 포트폴리오 기본 데베값 받아오기
+    //포트폴리오 기본 데베값 받아오기
     public PortfolioEditDO selectPortfolioEdit(String email) throws EmptyResultDataAccessException {
 
         String sql = "SELECT ui.gender, ui.name,p.*\n" +
@@ -100,20 +99,20 @@ public class PortfolioDao {
         jdbcTemplate.update(sqldelvideo,email);
     }
 
-    //서림 5.11 tools 불러오고, 입력전에 기존 db 삭제
+    //tools 불러오고, 입력전에 기존 db 삭제
     public void deletetools(String email){
         String sqldedeltool = "Delete from EDIT_TOOLS_LIST where EDITOR_EMAIL=?";
         jdbcTemplate.update(sqldedeltool,email);
     }
 
-    //희수
+
     //포트폴리오 삭제
     public void deletePortfolioPost(String email1) {
         jdbcTemplate.update("DELETE FROM portfolio WHERE EDITOR_EMAIL = ?", email1);
         jdbcTemplate.update("UPDATE USER_EDITOR SET IS_UPLOADED = 'FALSE' WHERE EDITOR_EMAIL = ?", email1);
     }
 
-    // 겸손
+
     public List<PortfolioDO> FolioFinder(String folio_search_text, String location, String[] edit_tools_folio, int postsPerPage, int offset) {
         String sql = "select * from ( select ROWNUM rn, rb.* from (select distinct p.is_public, u.email, p.portfolio_title, u.nickname, p.post_date " +
                 "from portfolio p " +
@@ -155,13 +154,13 @@ public class PortfolioDao {
     }
 
 
-    //5.11서림 기존값 tool들 받아오기
+    //기존값 tool들 받아오기
     public List<PortfolioToolsDO> getTools(String email) {
         String sql = "SELECT * FROM EDIT_TOOLS_LIST WHERE EDITOR_EMAIL = ?";
         return jdbcTemplate.query(sql, new EditToolsRowMapper(), email);
     }
 
-    //5.12 서림 기존 videolink 우선순위대로 받아오기
+    //기존 videolink 우선순위대로 받아오기
     public List<String> getVideoLinks(String email) {
         String sql = "SELECT video_link FROM VIDEO_LINKS WHERE EDITOR_EMAIL = ? order by PRIORITY";
         return jdbcTemplate.query(sql, new VideoLinksRowMapper(), email);

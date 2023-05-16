@@ -28,9 +28,7 @@ public class PortfolioController {
     @Autowired
     private UserService userService;
 
-    //희수
     //구직자 게시판 조회
-    //준영 페이징 추가
     @GetMapping("/portfolio_board")
     public String list2(@RequestParam(value = "page", defaultValue = "1") int page, Model model) {
         int postsPerPage = 10;
@@ -106,7 +104,7 @@ public class PortfolioController {
         return "portfolio_result";
     }
 
-    //5.11 양서림
+
     @PostMapping("/portfolio_edit")
     public String portfolioedit(HttpSession session, PortfolioEditRequest edit, RedirectAttributes redirectAttributes, @RequestParam("edit_link") String[] edit_link,
                                 @RequestParam("salaryhid") String salaryhid, @RequestParam("worktypehid") String worktypehid, @RequestParam("toyoutuberhid") String toyoutuberhid) {
@@ -156,7 +154,7 @@ public class PortfolioController {
         redirectAttributes.addFlashAttribute("msg","포트폴리오가 수정되었습니다");
         return "redirect:/portfolio_edit?email="+email;
     }
-    //5.12 양서림 초기조회 추가 (html css도변경함)
+    //초기조회 추가 (html css도변경함)
     @GetMapping("/portfolio_edit")
     public String portfolioForm(String email, Model model,HttpSession session , RedirectAttributes redirectAttributes) {
 
@@ -218,7 +216,6 @@ public class PortfolioController {
     }
 
 
-    //희수
     //구직자 상세 조회
     @GetMapping("/portfolio_result")
     public String portfolio_result(String email, Model model, HttpSession session, RedirectAttributes redirectAttributes) {
@@ -244,7 +241,7 @@ public class PortfolioController {
         model.addAttribute("portfolioDO", portfolioDO);
         return "portfolio_result";
     }
-    //희수
+
     //포트폴리오 삭제
     @GetMapping("/portfolio_delete")
     public String portfolio_delete(String email1, HttpSession session, RedirectAttributes redirectAttributes, Model model) {
@@ -261,7 +258,7 @@ public class PortfolioController {
         return list2(1, model);
     }
 
-    // 겸손
+
     @PostMapping("/portfolio_board/search")
     public String portfolio_board_search_POST(
             @RequestParam("folio_search_text") String folio_search_text,

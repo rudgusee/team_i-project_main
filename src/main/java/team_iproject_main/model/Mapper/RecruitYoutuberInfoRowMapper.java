@@ -23,4 +23,5 @@ public class RecruitYoutuberInfoRowMapper implements RowMapper<YoutuberDO> {
 
         return youtuberDO;
     }
+
 }

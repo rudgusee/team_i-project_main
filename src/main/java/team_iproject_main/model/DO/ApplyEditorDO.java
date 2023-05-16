@@ -4,6 +4,7 @@ import lombok.Data;
 
 @Data
 public class ApplyEditorDO {
+
     private int apply_no;
     private int recruit_no;
     private String editor_email;

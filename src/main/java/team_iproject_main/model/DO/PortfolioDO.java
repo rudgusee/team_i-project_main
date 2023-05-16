@@ -12,6 +12,7 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @Builder
 public class PortfolioDO {
+
     private String email;
     private String nickname;
     private String ispublic;

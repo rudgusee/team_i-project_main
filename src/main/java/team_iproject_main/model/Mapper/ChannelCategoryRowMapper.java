@@ -17,4 +17,5 @@ public class ChannelCategoryRowMapper implements RowMapper<ChannelCategoryDO> {
         return channelCategoryDO;
     }
 
+
 }

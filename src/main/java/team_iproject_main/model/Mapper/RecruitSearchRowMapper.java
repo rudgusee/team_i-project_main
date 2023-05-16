@@ -31,4 +31,5 @@ public class RecruitSearchRowMapper implements RowMapper<RecruitSearchDO> {
 
         return recruitSearchDO;
     }
+
 }

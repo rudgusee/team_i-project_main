@@ -38,7 +38,6 @@ public class UserController {
         return "redirect:/main";
     }
 
-    //0508손주현
     @PostMapping("/logout")
     public String logout(HttpSession session){
         session.removeAttribute("email");
@@ -56,7 +55,7 @@ public class UserController {
         return "signup_editor";
     }
 
-    ////0508 손주현-편집자 회원가입 수정
+    //편집자 회원가입 수정
     @PostMapping("/signup_editor")
     public String signup_editor(RegisterRequest req, Model model) {
         String view = "";
@@ -93,7 +92,7 @@ public class UserController {
         return "signup_youtuber";
     }
 
-    //0508-유튜버 회원가입 수정
+    //유튜버 회원가입 수정
     @PostMapping("/signup_youtuber")
     public String signup_youtuber(RegisterRequest req, Model model) {
         String view = "";
@@ -150,7 +149,7 @@ public class UserController {
         return "login";
     }
 
-    //0508-유튜버 로그인 수정
+    //유튜버 로그인 수정
     @PostMapping("/login")
     public String login(LoginCommand login, HttpSession session, Model model){
         String view = "";
@@ -187,14 +186,14 @@ public class UserController {
     }
 
 
-    //0506-손주현
+
     //find_id.html 불러오기
     @GetMapping("/find_id")
     public String find_idForm() {
         return "find_id";
     }
 
-    //0506-손주현
+
     //Post find_id_result
     @PostMapping("/find_id")
     public String find_id(FindIdRequest req, Model model) {
@@ -221,7 +220,7 @@ public class UserController {
         return "find_password";
     }
 
-    // 비밀번호 찾기 메서드,  230507 장준원
+    // 비밀번호 찾기 메서드
     @PostMapping("/find_password")
     public String find_passwordFrom(@ModelAttribute("formData") FindPasswordRequest pwReq, Model model) {
 
@@ -244,7 +243,7 @@ public class UserController {
             return "find_change_password";
         }
     }
-    // 비밀번호 변경 메서드(찾기에서 변경),  230509 장준원
+    // 비밀번호 변경 메서드(찾기에서 변경)
     @PostMapping("/find_change_password")
     public String changePassword(@RequestParam(value = "email") String email, @RequestParam(value = "newpwd") String newpwd, Model model) {
 
@@ -254,7 +253,7 @@ public class UserController {
         return "main";
     }
 
-    //5.8 양서림
+
     @GetMapping("/myPage")
     public String myPageForm(HttpSession session,Model model, RedirectAttributes redirectAttributes) {
         if(session.getAttribute("email") == null) {
@@ -269,7 +268,7 @@ public class UserController {
         return "myPage";
     }
 
-    //5.9 양서림
+
     @PostMapping("/myPage")
     public String myPageEdit(@ModelAttribute("member") UserUpdateRequest userUpdateRequest, Model model, HttpSession session, RedirectAttributes redirectAttributes){
         String email = String.valueOf(session.getAttribute("email"));
@@ -320,7 +319,7 @@ public class UserController {
             return "redirect:/myPage";
         }
     }
-    //0511- 손주현
+
     @PostMapping("/disableAccount")
     public String disalbeAccount(@RequestParam(value = "password") String password,
                                  HttpSession session, Model model) {
@@ -340,7 +339,6 @@ public class UserController {
     }
 
 
-    //0511- 손주현
     @GetMapping("/disableAccount")
     public String disalbeAccountForm(Model model, HttpSession session, RedirectAttributes redirectAttributes) {
         if(session.getAttribute("email") == null) {
@@ -351,7 +349,7 @@ public class UserController {
         return "disableAccount";
     }
 
-    //희수
+
     //관리자 (회원 조회)
     @GetMapping("/memberManage")
     public String list(@RequestParam(value = "page", defaultValue = "1") int page, Model model, HttpSession session, RedirectAttributes redirectAttributes) {
@@ -382,7 +380,7 @@ public class UserController {
 
         return "memberManage";
     }
-    //희수
+
     //id(이메일),닉네임 조회
     @PostMapping("/memberManage/search")
     public String findidPost(@RequestParam(value = "page", defaultValue = "1") int page, HttpSession session,
@@ -428,7 +426,7 @@ public class UserController {
 
         return "memberSearch";
     }
-    //희수
+
     //유저 삭제
     @PostMapping("/deleteMember")
     public String delectId(@RequestParam(value = "delete") String email, Model model) {

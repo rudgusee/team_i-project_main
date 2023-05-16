@@ -25,4 +25,5 @@ public class PortfolioRowMapper implements RowMapper<PortfolioDO> {
         portfolioDO.setMessagetoyoutuber(rs.getString("MESSAGE_TO_YOUTUBER"));
         return portfolioDO;
     }
+
 }

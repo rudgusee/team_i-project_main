@@ -20,4 +20,5 @@ public class ApplyEditorRowMapper implements RowMapper<ApplyEditorDO> {
         return applyEditorDO;
 
     }
+
 }

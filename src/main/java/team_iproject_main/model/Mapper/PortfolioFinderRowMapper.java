@@ -20,4 +20,5 @@ public class PortfolioFinderRowMapper implements RowMapper<PortfolioDO> {
 
         return finderfolio;
     }
+
 }

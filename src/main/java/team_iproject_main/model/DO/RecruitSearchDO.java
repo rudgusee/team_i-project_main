@@ -11,6 +11,7 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @Data
 public class RecruitSearchDO { //구인글 (유튜버)
+
     private int recruitNo; //게시글 숫자? fk값?
     private String email; //유튜버 계정
     private String title;   //제목

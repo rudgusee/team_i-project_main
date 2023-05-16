@@ -6,7 +6,7 @@ import lombok.Data;
 public class PortfolioEditRequest {
 
     private String location; //근무가능지역
-    private String[] edit_tools;
+    private String[] edit_tools;git ini
     private String YOUTUBE_CAREER;
     private String career; //다른기업경력
     private String message; //하고싶은말

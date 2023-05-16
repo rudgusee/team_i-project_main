@@ -16,4 +16,5 @@ public class MyRecruitRowMapper implements RowMapper<MyRecruitDO>  {
         myRecruitDO.setPost_date(rs.getTimestamp("post_date").toLocalDateTime());
         return myRecruitDO;
     }
+
 }

@@ -6,6 +6,7 @@ import java.time.LocalDate;
 
 @Data
 public class QnADO {
+
     private int qnano;
     private String email;
     private String nickname;

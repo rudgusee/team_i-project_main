@@ -13,5 +13,4 @@ public class VideoLinksRowMapper implements RowMapper<String> {
     }
 
 
-
 }

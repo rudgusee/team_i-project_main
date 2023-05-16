@@ -4,6 +4,7 @@ import lombok.Data;
 
 @Data
 public class UserEditorDO {
+
     private String EDITOR_EMAIL;
     private String IS_UPLOADED;
 }

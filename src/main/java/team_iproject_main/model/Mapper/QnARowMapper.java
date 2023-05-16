@@ -19,4 +19,5 @@ public class QnARowMapper implements RowMapper<QnADO> {
         qnaDO.setPostdate(rs.getDate("POST_DATE").toLocalDate());
         return qnaDO;
     }
+
 }

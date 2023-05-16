@@ -18,4 +18,5 @@ public class EditToolsRecruitRowMapper implements RowMapper<EditToolsRecruitDO> 
         return editToolsRecruitDO;
 
     }
+
 }

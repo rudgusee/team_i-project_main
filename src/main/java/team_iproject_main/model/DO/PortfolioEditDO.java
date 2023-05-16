@@ -3,7 +3,6 @@ package team_iproject_main.model.DO;
 import lombok.Data;
 
 
-//5.12 양서림 수정
 @Data
 public class PortfolioEditDO {
     private String gender;

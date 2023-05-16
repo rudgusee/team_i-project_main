@@ -21,4 +21,5 @@ public class YoutuberRowMapper implements RowMapper<RegisterReqeustChannel> {
 
         return uq;
     }
+
 }
