@@ -81,19 +81,17 @@ public class RecruitService {
         recruitBoardDao.modifyRecruitBoard(recruitBoardDO, recruitNo, email);
     }
 
-    //주현
-    // 준영 페이징 추가
+    // 페이징 추가
     public List<RecruitDO> findRecruit(String email, int page, int postsPerPage) {
         int offset = (page - 1) * postsPerPage;
         return recruitBoardDao.findAllApplyByEmail(email, postsPerPage, offset);
     }
 
-    // 준영 페이징 추가
+    // 페이징 추가
     public int getTotalApply(String email) {
         return recruitBoardDao.getTotalApply(email);
     }
 
-    //희수
     //구인글 게시글 상세 조회
     public RecruitDO boardview(int recruitNo){
         return recruitBoardDao.selectRecruitPost(recruitNo);
@@ -107,16 +105,15 @@ public class RecruitService {
         return recruitBoardDao.getTools(recruitNo);
     }
 
-    //희수
-    //구인글 게시글 조회
-    // 준영 페이징 추가
+    // 구인글 게시글 조회
+    // 페이징 추가
     public List<RecruitSearchDO> findRecruit(int page, int postsPerPage) {
         int offset = (page - 1) * postsPerPage;
         return recruitBoardDao.findRecruit(postsPerPage, offset);
     }
 
 
-    // 준영 페이징 추가
+    // 페이징 추가
     public int getTotalPosts() {
         return recruitBoardDao.getTotalPosts();
     }
@@ -129,7 +126,7 @@ public class RecruitService {
         recruitBoardDao.deleteRecruitPost(recruitNo);
     }
 
-    // 겸손 검색
+    // 검색
     public List<RecruitSearchDO> Recruit_finder(RequestKeyword keyword, int page, int postsPerPage) {
 
         int offset = (page - 1) * postsPerPage;
@@ -139,20 +136,18 @@ public class RecruitService {
 
     }
 
-    // 0512 준원
     // 유튜버 -> 작성한 구인글 -> 지원자 확인
-    // 준영 페이징 추가
+    // 페이징 추가
     public List<MyRecruitDO> myRecruitList(String youtuber_email, int page, int postsPerPage) {
         int offset = (page - 1) * postsPerPage;
         return recruitBoardDao.findMyRecruit(youtuber_email, postsPerPage, offset);
     }
 
-    // 준영 페이징 추가
+    // 페이징 추가
     public int getTotalRecruits(String youtuber_email) {
         return recruitBoardDao.getTotalRecruits(youtuber_email);
     }
 
-    // 준원
     // 유튜버 사진 및 채널명 가져오는 메서드
     public YoutuberDO getYoutuberPhotoName(int recruitNo) {
         return recruitBoardDao.selectYoutuberInfo(recruitNo);
